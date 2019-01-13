@@ -32,3 +32,32 @@ print(list2)
 #if we would not convert into any datatype then use below
 list3 = np.array([1,"2",3.0], dtype = np.object)
 print(list3)
+
+
+#we can convert 1d array into 2d
+array3 = np.arange(10)
+array3.shape = 2,5
+print(array3)
+
+#we can reshape above array in 1d
+print(array3.reshape(1,10))
+
+#create horizontal vector
+print(np.r_[0:10:1])
+
+#for vertical vector
+print(np.c_[0:10:1])
+
+#we can make the zeros and ones arrya
+print(np.ones((5,3)))
+#it will convet whole array into int
+print(np.zeros((2,3),dtype=np.int32))
+
+#it will make all diagonal one
+print(np.identity(3))
+
+#randon number
+print(np.random.rand(3,4)*10)
+
+#randon number of integer
+print(np.random.randint(30,size=(3,5)))
