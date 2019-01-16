@@ -16,3 +16,8 @@ print(array2)
 array3 = np.arange(100)
 #it will create a zip file and in this file we find two .npy format file which contain array3 and array1
 np.savez("file2.npz",a=array3,b=array2)
+#we can load above file into dictionary
+dictionary = np.load("file2.npz")
+print(dictionary.keys())
+print(dictionary["a"])
+print(dictionary["b"])

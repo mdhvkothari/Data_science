@@ -61,3 +61,10 @@ print(np.random.rand(3,4)*10)
 
 #randon number of integer
 print(np.random.randint(30,size=(3,5)))
+
+#we can protect our array not edit it or not modify it
+
+array4 = np.arange(0,10,2)
+array4.flags.writeable  = False
+print(array4)
+# now we can't add or modify array4
