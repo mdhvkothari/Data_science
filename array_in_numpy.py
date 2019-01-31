@@ -68,3 +68,17 @@ array4 = np.arange(0,10,2)
 array4.flags.writeable  = False
 print(array4)
 # now we can't add or modify array4
+
+
+#if we want to find out the mean 
+#then use
+#np.mean(arrayname[index to which mean is to be find])
+
+#this median function find mean first arrange index data into accending order
+#np.median(arrayname[index to which mean is to be find])
+
+
+#for st
+
+
+
