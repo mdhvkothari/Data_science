@@ -1,5 +1,8 @@
 import pandas as pd
 import numpy as np
+#for matplotlib
+#import matplotlib.pyplot as plt
+
 headers = ["symboling","normalized-losses","make","fule-type","aspiration","num-of-doors","body-style","drive-wheels","engine-location","wheel-base","length","width","height","curb-weight","engine-type","num-of-cylinders","engine-size","fule-system","bore","stroke","compression-ratio","horsepower","peak-rpm","city-mpg","highway-mpg","price"]
 
 dt = pd.read_csv("data.csv",header = None)
@@ -71,10 +74,29 @@ print(dt['price-binned'])
 
 
 
+#one-hot coding
+#in this coloum fule have two values one is gas and another one is diesel this will make a dummy 
+#which means that where is gas it show 1 and diesel is 0 and where is diesel it show 1 and gas 0
+#pd.get_dummies(dt['fuel'])
 
 
+#we can calculate the individual row 
+
+drive_wheel_counts = dt['drive-wheels'].value_counts()
+
+print(drive_wheel_counts)
 
 
+#for graph
+#for boxplot
+#plt.boxplot(x='drive-wheels',y='price',data=dt)
+
+#for scatter type graph
+#plt.scatter(x='engine-size',y='price')
+#for title the graph
+#plt.title('Scatterplot engine-size vs price')
+#plt.xlabel('engine-size')
+#plt.ylabel('price')
 
 
 
