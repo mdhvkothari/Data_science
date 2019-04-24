@@ -17,6 +17,7 @@ X = datasets.iloc[:, :-1].values
 #now we are  going to create the dependent variable 
 Y = datasets.iloc[:, 3].values  
 
+
 #taking care of missing data
 from sklearn.preprocessing import Imputer
 imputer = Imputer(missing_values='NaN',strategy = 'mean', axis = 0)
@@ -24,6 +25,7 @@ imputer = Imputer(missing_values='NaN',strategy = 'mean', axis = 0)
 imputer = imputer.fit(X[:,1:3])
 #now we have to replace value
 X[:,1:3] = imputer.transform(X[:,1:3])
+
 
 #Encoding Categorical data
 #now we have to make catagory of the data like Country and purchase 
@@ -40,8 +42,18 @@ labelencoder_Y = LabelEncoder()
 Y=labelencoder_Y.fit_transform(Y)
 
 
+#splition dataset into test and training sets
+from sklearn.model_selection import train_test_split 
+#there train size is means 20% of data set is used to test the data best practice is used 20 to 30% used for test the data
+X_train,X_test,Y_train,Y_test = train_test_split(X,Y,test_size=.2,random_state=0)
 
-
+#feature scaling
+#we should done this beacuse the salary and the age both feature have big difference which gives a problem to draw a graph
+from sklearn.preprocessing import StandardScaler
+sc_X = StandardScaler()
+X_train = sc_X.fit_transform(X_train)
+X_test = sc_X.fit_transform(X_test)
+#now all the values of the tarining set will come under the same range
 
 
 
