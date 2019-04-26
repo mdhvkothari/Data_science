@@ -53,7 +53,7 @@ from sklearn.preprocessing import StandardScaler
 sc_X = StandardScaler()
 X_train = sc_X.fit_transform(X_train)
 X_test = sc_X.fit_transform(X_test)
-#now all the values of the tarining set will come under the same range
+        #now all the values of the tarining set will come under the same range
 
 
 
