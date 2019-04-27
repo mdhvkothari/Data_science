@@ -44,9 +44,27 @@ Y_pred = regressor.predict(X_test)
 import statsmodels.formula.api as sm
 X = np.append(arr=np.ones((50,1)).astype(int),values = X,axis =1)
 # Now we have to create a new optimal matrix
-#basically we remove unsignifant data   
-X_opt = 
-
+#basically we remove unsignifcant data   
+# we have to select the Significance level (e.g = .05) and if P value to lager than this value we have to remove the  predictor
+X_opt = X[:,[0,1,2,3,4,5]]
+regressor_OLS = sm.OLS(endog= Y,exog=X_opt).fit()
+print(regressor_OLS.summary())
+# 1 have larger p value than SL(Significance level) then we have to delete it
+X_opt = X[:,[0,1,3,4,5]]
+regressor_OLS = sm.OLS(endog=Y,exog=X_opt).fit()
+print(regressor_OLS.summary()) 
+# again 1 is greater than SL
+X_opt = X[:,[0,3,4,5]]
+regressor_OLS = sm.OLS(endog=Y,exog=X_opt).fit()
+print(regressor_OLS.summary()) 
+# again 2  is greater than SL 
+X_opt = X[:,[0,3,5]]
+regressor_OLS = sm.OLS(endog=Y,exog=X_opt).fit()
+print(regressor_OLS.summary()) 
+#now 5 is greater than SL
+X_opt = X[:,[0,3]]
+regressor_OLS = sm.OLS(endog=Y,exog=X_opt).fit()
+print(regressor_OLS.summary()) 
 
 
 
